@@ -1,0 +1,30 @@
+# 钢材表面缺陷检测 - 依赖包
+# 基础依赖
+ultralytics==8.3.85          # YOLO模型框架
+torch==2.5.1+cu121           # PyTorch (CUDA 12.1版本)
+torchvision==0.20.1+cu121    # PyTorch视觉库
+torchaudio==2.5.1+cu121      # PyTorch音频库
+
+# 数据处理和分析
+numpy==1.26.3                # 数值计算库
+pandas==2.1.4                # 数据分析库
+matplotlib==3.9.4            # 绘图库
+
+# 图像处理
+opencv-python==4.11.0.86     # OpenCV计算机视觉库
+pillow==11.0.0               # PIL图像处理库
+
+# 可选依赖
+pyyaml>=6.0                  # YAML文件处理
+tqdm>=4.65.0                 # 进度条
+scipy>=1.11.3                # 科学计算库
+seaborn>=0.12.2              # 统计数据可视化
+
+# 导出和部署依赖
+onnx>=1.14.1                 # ONNX模型格式
+onnxruntime>=1.16.3          # ONNX运行时
+
+# 以下是CPU-only版本的PyTorch依赖，如果不需要CUDA可以使用这些
+# torch==2.5.1
+# torchvision==0.20.1
+# torchaudio==2.5.1 

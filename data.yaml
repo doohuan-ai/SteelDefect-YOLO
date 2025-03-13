@@ -1,0 +1,28 @@
+path: /mnt/ssd/yolo  # 根目录
+
+# 训练和验证数据集路径
+train: [
+  datasets/NEU-DET/images/train,  # NEU-DET训练集
+  datasets/GC10-DET/images/train  # GC10-DET训练集
+]
+
+val: [
+  datasets/NEU-DET/images/val,    # NEU-DET验证集
+  datasets/GC10-DET/images/val    # GC10-DET验证集
+]
+
+# 合并所有类别信息
+nc: 16  # 合并后的类别数量：NEU-DET(6) + GC10-DET(10)
+
+# 合并后的类别名称
+names: [
+  # NEU-DET类别 (6)
+  'rolled-in_scale', 'patches', 'crazing', 'pitted_surface', 'inclusion', 'scratches',
+  
+  # GC10-DET类别 (10)
+  'punching_hole', 'welding_line', 'crescent_gap', 'water_spot', 'oil_spot', 
+  'silk_spot', 'inclusion_gc10', 'rolled_pit', 'crease', 'waist_folding'
+]
+
+# 任务类型：目标检测
+task: detect 
