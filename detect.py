@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-钢材表面缺陷检测推理脚本
-多焕智能(DooHuan AI)出品
-
 此脚本用于使用训练好的YOLOv8模型检测钢材表面的缺陷。
 支持对单张图片、多张图片、视频文件和摄像头流进行实时检测。
 """
@@ -187,7 +184,6 @@ def main():
     """主函数"""
     args = parse_args()
     print_color("钢材表面缺陷检测系统", 'info')
-    print_color("多焕智能(DooHuan AI)出品", 'success')
     print_color("-" * 50, 'info')
     
     # 显示参数
