@@ -1,4 +1,4 @@
-path: /mnt/ssd/yolo  # 根目录
+path: /mnt/ssd/steel-defect-detection  # 根目录
 
 # 训练和验证数据集路径
 train: [

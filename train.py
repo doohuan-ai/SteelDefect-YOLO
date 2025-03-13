@@ -10,7 +10,7 @@ def train_model():
         data='data.yaml',                # 使用联合数据集配置文件
         epochs=250,                       # 训练轮数
         batch=16,                         # 训练批次大小
-        project='/mnt/ssd/yolo/runs',     # 输出目录
+        project='runs',                   # 输出目录
         # 以下是可选参数，根据需要取消注释使用
         # imgsz=256,                        # 图像尺寸
         # patience=20,                      # 早停耐心值
