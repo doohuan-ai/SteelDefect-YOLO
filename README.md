@@ -1,4 +1,4 @@
-# Steel Defect Detection
+# 钢材表面缺陷检测系统 Steel Defect Detection
 
 <div align="center">
   <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
@@ -62,7 +62,7 @@
 ├── convert_gc10_to_yolo.py    # GC10-DET数据集转换脚本
 ├── data.yaml                  # 联合数据集配置文件
 ├── train.py                   # 训练脚本
-├── detect.py                  # 目标检测推理脚本（待添加）
+├── detect.py                  # 目标检测推理脚本
 ├── requirements.txt           # 项目依赖
 └── README.md                  # 项目说明文档
 ```
@@ -120,13 +120,38 @@ python train.py
 ### 模型推理
 
 使用训练好的模型进行推理：
+
 ```bash
 # 单张图片推理
-python detect.py --source path/to/image.jpg --weights runs/detect/train/weights/best.pt
+python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --view-img
 
 # 视频推理
-python detect.py --source path/to/video.mp4 --weights runs/detect/train/weights/best.pt
+python detect.py --weights runs/detect/train/weights/best.pt --source path/to/video.mp4 --view-img
+
+# 使用摄像头实时检测
+python detect.py --weights runs/detect/train/weights/best.pt --source 0 --view-img
+
+# 处理整个目录下的图片
+python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image/directory
+
+# 调整检测参数
+python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --conf-thres 0.4 --iou-thres 0.5
+
+# 保存检测结果为文本文件
+python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --save-txt --save-conf
 ```
+
+更多参数选项:
+- `--weights`: 模型权重文件路径
+- `--source`: 输入源(图片文件/目录/视频/摄像头ID)
+- `--conf-thres`: 置信度阈值(默认0.25)
+- `--iou-thres`: NMS IoU阈值(默认0.45)
+- `--device`: 计算设备(cuda设备,如 0 或 0,1,2,3 或 cpu)
+- `--view-img`: 显示检测结果
+- `--save-txt`: 保存结果到*.txt文件
+- `--save-conf`: 在txt结果中保存置信度
+- `--project`: 结果保存目录
+- `--name`: 结果保存子目录名称
 
 ## 性能指标
 
