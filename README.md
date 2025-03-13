@@ -1,4 +1,4 @@
-# 钢材表面缺陷检测系统
+# Steel Defect Detection
 
 <div align="center">
   <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
@@ -73,8 +73,8 @@
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/doohuan-ai/steel-surface-defect-detection.git
-cd steel-surface-defect-detection
+git clone https://github.com/doohuan-ai/steel-defect-detection.git
+cd steel-defect-detection
 ```
 
 2. 创建并激活环境：
