@@ -1,4 +1,4 @@
-# 钢材表面缺陷检测系统 Steel Defect Detection System
+# 钢材表面缺陷检测 Steel Defect Detection
 
 <div align="center">
   <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
