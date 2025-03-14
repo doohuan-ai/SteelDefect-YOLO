@@ -4,16 +4,27 @@ import glob
 from pathlib import Path
 import shutil
 import random
+import argparse
 
 # 设置随机种子以确保可重复性
 random.seed(42)
 
+# 解析命令行参数
+def parse_args():
+    parser = argparse.ArgumentParser(description='将GC10-DET数据集转换为YOLO格式')
+    parser.add_argument('src_dir', type=str,
+                        help='原始GC10-DET数据集位置（必传参数）')
+    parser.add_argument('--train_ratio', type=float, default=0.8,
+                        help='训练集比例，默认0.8表示80%用于训练，20%用于验证')
+    return parser.parse_args()
+
 # 配置
-src_dir = "/mnt/hdd/datasets/steel-surface-defect-sample/GC10-DET"  # 原始数据集位置
-src_img_dir = os.path.join(src_dir, "ds/img")  # 原始图像位置
+args = parse_args()
+src_dir = args.src_dir  # 原始数据集位置
 src_ann_dir = os.path.join(src_dir, "ds/ann")  # 原始标注位置
-dst_dir = "datasets/GC10-DET"  # 目标目录
-train_ratio = 0.8  # 80%用于训练，20%用于验证
+src_img_dir = os.path.join(src_dir, "ds/img")  # 原始图像位置
+dst_dir = "datasets/GC10-DET"  # 转换后的数据集保存位置
+train_ratio = args.train_ratio  # 80%用于训练，20%用于验证
 
 # 清空目标目录（如果存在）
 def clean_dst_dir():

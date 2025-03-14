@@ -1,4 +1,4 @@
-# 钢材表面缺陷检测系统 Steel Defect Detection
+# 钢材表面缺陷检测系统 Steel Defect Detection System
 
 <div align="center">
   <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
@@ -100,9 +100,20 @@ pip install -r requirements.txt
 
 1. 将原始数据集转换为YOLO格式：
 ```bash
-python convert_neu_to_yolo.py
-python convert_gc10_to_yolo.py
+# 必须指定原始数据集的位置
+python convert_neu_to_yolo.py /path/to/NEU-DET
+python convert_gc10_to_yolo.py /path/to/GC10-DET
+
+# 可以同时指定训练集比例
+python convert_neu_to_yolo.py /path/to/NEU-DET --train_ratio 0.8
+python convert_gc10_to_yolo.py /path/to/GC10-DET --train_ratio 0.8
 ```
+
+参数说明：
+- 第一个参数（必传）：原始数据集位置
+- `--train_ratio`: 训练集比例（默认0.8，表示80%用于训练，20%用于验证）
+
+转换后的数据集将保存在项目目录下的`datasets/NEU-DET`和`datasets/GC10-DET`文件夹中。
 
 如果您没有数据集，可以从以下链接下载：
 - NEU-DET: http://faculty.neu.edu.cn/songkechen/zh_CN/zdylm/263270/list/
@@ -181,5 +192,5 @@ python detect.py --weights runs/detect/train/weights/best.pt --source path/to/im
 ## 致谢
 
 - 感谢东北大学提供NEU-DET数据集
-- 感谢GC10-DET数据集的贡献者
+- 感谢Severstal提供GC10-DET数据集
 - 感谢Ultralytics提供YOLOv8开源实现 
