@@ -58,11 +58,15 @@
 │       └── labels/            # YOLO格式标签
 │           ├── train/         # 训练集标签
 │           └── val/           # 验证集标签
-├── convert_neu_to_yolo.py     # NEU-DET数据集转换脚本
-├── convert_gc10_to_yolo.py    # GC10-DET数据集转换脚本
-├── data.yaml                  # 联合数据集配置文件
-├── train.py                   # 训练脚本
-├── detect.py                  # 目标检测推理脚本
+├── yolo/                      # YOLO算法相关脚本
+│   ├── convert_neu_to_yolo.py # NEU-DET数据集转换脚本
+│   ├── convert_gc10_to_yolo.py # GC10-DET数据集转换脚本
+│   ├── train.py              # 训练脚本
+│   ├── detect.py             # 目标检测推理脚本
+│   └── config/               # 配置文件目录
+│       └── data.yaml         # 联合数据集配置文件
+├── assets/                    # 静态资源目录
+├── example/                   # 示例图片目录
 ├── requirements.txt           # 项目依赖
 └── README.md                  # 项目说明文档
 ```
@@ -101,12 +105,12 @@ pip install -r requirements.txt
 1. 将原始数据集转换为YOLO格式：
 ```bash
 # 必须指定原始数据集的位置
-python convert_neu_to_yolo.py /path/to/NEU-DET
-python convert_gc10_to_yolo.py /path/to/GC10-DET
+python yolo/convert_neu_to_yolo.py /path/to/NEU-DET
+python yolo/convert_gc10_to_yolo.py /path/to/GC10-DET
 
 # 可以同时指定训练集比例
-python convert_neu_to_yolo.py /path/to/NEU-DET --train_ratio 0.8
-python convert_gc10_to_yolo.py /path/to/GC10-DET --train_ratio 0.8
+python yolo/convert_neu_to_yolo.py /path/to/NEU-DET --train_ratio 0.8
+python yolo/convert_gc10_to_yolo.py /path/to/GC10-DET --train_ratio 0.8
 ```
 
 参数说明：
@@ -123,10 +127,10 @@ python convert_gc10_to_yolo.py /path/to/GC10-DET --train_ratio 0.8
 
 使用联合数据集训练模型：
 ```bash
-python train.py
+python yolo/train.py
 ```
 
-训练参数可以在`train.py`文件中修改。
+训练参数可以在`yolo/train.py`文件中修改。
 
 ### 模型推理
 
@@ -134,22 +138,22 @@ python train.py
 
 ```bash
 # 单张图片推理
-python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --view-img
+python yolo/detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --view-img
 
 # 视频推理
-python detect.py --weights runs/detect/train/weights/best.pt --source path/to/video.mp4 --view-img
+python yolo/detect.py --weights runs/detect/train/weights/best.pt --source path/to/video.mp4 --view-img
 
 # 使用摄像头实时检测
-python detect.py --weights runs/detect/train/weights/best.pt --source 0 --view-img
+python yolo/detect.py --weights runs/detect/train/weights/best.pt --source 0 --view-img
 
 # 处理整个目录下的图片
-python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image/directory
+python yolo/detect.py --weights runs/detect/train/weights/best.pt --source path/to/image/directory
 
 # 调整检测参数
-python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --conf-thres 0.4 --iou-thres 0.5
+python yolo/detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --conf-thres 0.4 --iou-thres 0.5
 
 # 保存检测结果为文本文件
-python detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --save-txt --save-conf
+python yolo/detect.py --weights runs/detect/train/weights/best.pt --source path/to/image.jpg --save-txt --save-conf
 ```
 
 更多参数选项:

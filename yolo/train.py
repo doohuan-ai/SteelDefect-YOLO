@@ -3,11 +3,11 @@ from ultralytics import YOLO
 # 设置训练参数
 def train_model():
     # 加载预训练模型
-    model = YOLO("yolov8m.pt")
+    model = YOLO("../yolov8m.pt")
     
     # 设置训练参数
     results = model.train(
-        data='data.yaml',                # 使用联合数据集配置文件
+        data='yolo/config/data.yaml',                # 使用联合数据集配置文件
         epochs=250,                       # 训练轮数
         batch=16,                         # 训练批次大小
         project='runs',                   # 输出目录
