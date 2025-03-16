@@ -1,7 +1,7 @@
 # 基于YOLO算法的钢材表面缺陷检测
 
 <div align="center">
-  <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
+  <img src="assets/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
   <h1>多焕智能（DooHuan AI）</h1>
   <p>
     <b>工业智能视觉检测系统</b>
