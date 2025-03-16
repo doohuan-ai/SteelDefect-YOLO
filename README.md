@@ -1,4 +1,4 @@
-# 基于YOLO算法的钢材表面缺陷检测 SteelDefect-YOLO
+# 基于YOLO算法的钢材表面缺陷检测
 
 <div align="center">
   <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
