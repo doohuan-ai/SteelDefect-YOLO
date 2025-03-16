@@ -1,4 +1,4 @@
-# 钢材表面缺陷检测 Steel Defect Detection
+# 基于YOLO算法的钢材表面缺陷检测 SteelDefect-YOLO
 
 <div align="center">
   <img src="images/doohuan_logo.png" alt="多焕智能Logo" width="300"/>
@@ -73,15 +73,15 @@
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/doohuan-ai/steel-defect-detection.git
-cd steel-defect-detection
+git clone https://github.com/doohuan-ai/SteelDefect-YOLO.git
+cd SteelDefect-YOLO
 ```
 
 2. 创建并激活环境：
 ```bash
 # 使用conda
-conda create -n steel-surface-defect-detection python=3.9
-conda activate steel-surface-defect-detection
+conda create -n steeldefect-yolo python=3.9
+conda activate steeldefect-yolo
 
 # 或使用venv
 python -m venv venv
