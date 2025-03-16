@@ -65,6 +65,10 @@
 │   ├── detect.py             # 目标检测推理脚本
 │   └── config/               # 配置文件目录
 │       └── data.yaml         # 联合数据集配置文件
+├── models/                    # 模型文件目录
+│   ├── yolov8n.pt            # YOLOv8 nano模型
+│   ├── ...                   # 其他YOLO模型
+│   └── yolo11n.pt            # YOLO11 nano模型
 ├── assets/                    # 静态资源目录
 ├── example/                   # 示例图片目录
 ├── requirements.txt           # 项目依赖
@@ -130,7 +134,27 @@ python yolo/convert_gc10_to_yolo.py /path/to/GC10-DET --train_ratio 0.8
 python yolo/train.py
 ```
 
-训练参数可以在`yolo/train.py`文件中修改。
+训练参数可以在`yolo/train.py`文件中修改。默认使用YOLOv8m模型进行训练，如需使用其他模型，请修改`yolo/train.py`文件中的模型路径：
+
+```python
+# 使用YOLOv8n（轻量级模型）
+model = YOLO("../models/yolov8n.pt")
+
+# 使用YOLOv8m（中等大小模型，默认）
+model = YOLO("../models/yolov8m.pt")
+
+# 使用YOLOv8x（大型模型，更高精度但更慢）
+model = YOLO("../models/yolov8x.pt")
+
+# 使用YOLO11n（实验性模型）
+model = YOLO("../models/yolo11n.pt")
+```
+
+可用模型说明：
+- YOLOv8n：轻量级模型，适合资源受限设备
+- YOLOv8m：中等大小模型，平衡速度和精度
+- YOLOv8x：大型模型，提供更高精度但需要更多计算资源
+- YOLO11n：实验性模型
 
 ### 模型推理
 
